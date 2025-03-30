@@ -20,4 +20,8 @@
     <PackageReference Include="Keycloak.AuthServices.Aspire.Hosting" Version="0.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WebService\WebService.csproj" />
+  </ItemGroup>
+
 </Project>

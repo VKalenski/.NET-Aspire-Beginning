@@ -1,4 +1,4 @@
-﻿using Aspire.Hosting;
+using Aspire.Hosting;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
@@ -17,5 +17,9 @@ var rabbitMq = builder.AddRabbitMQ("test-rabbit-mq")
 
 var grafana = builder.AddContainer("grafana", "grafana/grafana")
     .WithEndpoint(port: 3010, targetPort: 3000, scheme: "http", name: "http");
+
+builder.AddProject<Projects.WebApplication>("webapplication");
+
+builder.AddProject<Projects.WebService>("webservice");
 
 builder.Build().Run();
